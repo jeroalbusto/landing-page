@@ -1,8 +1,16 @@
 import demoUrl from '../assets/demo.png';
+import Tag from './Tag';
+import {ChevronRight} from 'lucide-react'
 
 const HeroSection = () => {
     return (
         <section className="hero-section text-center mt-32 flex flex-col">
+            <Tag>
+                <div className='flex items-center cursor-pointer'>
+                    <span>Nexx v0.1</span>
+                    <ChevronRight className='w-6 h-6 ml-1 text-indigo-300 overflow-visible'/>
+                </div>
+            </Tag>
             <h1 className="text-4xl font-extrabold leading-[1.15] text-black sm:text-6xl">
             Launch Your Sass
             <br />
