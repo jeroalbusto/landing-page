@@ -1,6 +1,9 @@
 import './App.css'
 import NavBAR from './components/NavBar'
 import HeroSection from './components/HeroSection'
+import { partnersLogo } from './data/partners'
+import Slider from './components/Slider'
+
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
     <NavBAR />
     <div className='container mx-auto'>
     <HeroSection />
+    <Slider images={partnersLogo}/>
     </div>
     </div>
     </>

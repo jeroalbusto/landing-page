@@ -1,8 +1,28 @@
+import { useState } from "react";
 import logoUrl from "../assets/logo.png";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 
 const NavBAR = () => {
+  const { scrollY } = useScroll()
+  const [scrolled, setScrolled] = useState(false)
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    console.log("Page scroll: ", latest)
+    if(latest > 0 && !scrolled){
+      setScrolled(true)
+    }else if (latest === 0  && scrolled) {
+      setScrolled(false)
+    }
+  })
+
+  const defaultClasses = "transition-all absolute inset-0 -z-1"
+
+  const navBarClasses = scrolled ? `${defaultClasses} border-b border-black/10 bg-white/75 backdrop-blur-lg` : `${defaultClasses} bg-transparent`
+
+
   return (
     <div className="sticky inset-x-0 top-0 w-full z-30">
+      <div className={navBarClasses}></div>
       <div className="mx-auto w-full max-w-screen-xl px-2.5 lg:px-20 relative">
         <div className="flex items-center justify-between">
           <div>
